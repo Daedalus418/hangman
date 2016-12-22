@@ -10,11 +10,15 @@
       <p>
         Try to find the word before dying.
       </p>
-    <span>_</span>
+
+    <span>{{print correct letter}}_</span>
+
     <form>
       <input type="text" name="letter" value="enter a letter">
       <input type="submit" name="button" value="enter">
     </form>
+
+    <span>{{print !correct letter}}</span>
 
     <script src="/bower_components/angular/angular.js"></script>
 
