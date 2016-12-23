@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app='app'>
   <head>
     <meta charset="utf-8">
     <title>Hangman</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-controller="hangmanController">
+  <body ng-controller='hangmanController as vm'>
     <h1>HANGMAN</h1>
       <p>
         Try to find the word before dying.
       </p>
 
-    <span>{{print correct letter}}_</span>
+    <!-- <span>{{print correct letter}}_</span> -->
 
     <form>
       <input type="text" name="letter" value="enter a letter">
       <input type="submit" name="button" value="enter">
     </form>
 
-    <span>{{print !correct letter}}</span>
+    <p>Il vous reste {{vm.totalChance - vm.failedTest}} chance(s) pour découvrir le mot.</p>
 
-    <script src="/bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
 
     <script src="js/controllers/hangmanController.js"></script>
 
     <script src="js/app.js"></script>
+
+    <!-- <script>
+        // You can also require other files to run in this process
+        require('../renderer.js')
+    </script> -->
   </body>
 </html>

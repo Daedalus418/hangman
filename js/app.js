@@ -1,2 +1,2 @@
 angular.module('app', [])
-        .controller('hangmanController', hangmanController)
+        .controller('hangmanController', hangmanController);
