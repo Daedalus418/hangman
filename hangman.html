@@ -11,17 +11,8 @@
         Try to find the word before dying.
       </p>
 
-    <div class="">
-      <ul>
-        <li ng-repeat="letter in vm.dictionnary">
-          <span ng-hide="letterChosen">?</span>
-          <span ng-show="letterChosen">{{letterTest}}</span>
-        </li>
-      </ul>
-    </div>
-
     <form>
-      <input type="text" name="letter" placeholder="enter a letter" ng-model="letterTest" ng-keyup="">
+      <input type="text" name="letter" placeholder="enter a letter" ng-model="letterTest" ng-keyup="$event.keyCode == 13? compare(letterTest):null">
       <input type="submit" name="button" value="enter" ng-click="compare(letterTest)">
     </form>
 
