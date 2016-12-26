@@ -11,14 +11,23 @@
         Try to find the word before dying.
       </p>
 
-    <!-- <span>{{print correct letter}}_</span> -->
+    <div class="">
+      <ul>
+        <li ng-repeat="letter in vm.dictionnary">
+          <span ng-hide="letterChosen">?</span>
+          <span ng-show="letterChosen">{{letterTest}}</span>
+        </li>
+      </ul>
+    </div>
 
     <form>
-      <input type="text" name="letter" value="enter a letter">
-      <input type="submit" name="button" value="enter">
+      <input type="text" name="letter" placeholder="enter a letter" ng-model="letterTest" ng-keyup="">
+      <input type="submit" name="button" value="enter" ng-click="compare(letterTest)">
     </form>
 
     <p>Il vous reste {{vm.totalChance - vm.failedTest}} chance(s) pour découvrir le mot.</p>
+    <p ng-show='success'>Bien joué !</p>
+    <p ng-show='defeat'>Perdu, le mot à deviner était "{{vm.dictionnary[0]}}". Mais vous pouvez rejouer :) Oui, vous êtes immortel(le)</p>
 
     <script src="bower_components/angular/angular.min.js"></script>
 
