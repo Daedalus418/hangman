@@ -1,5 +1,4 @@
 function hangmanController () {
-  //const randomWordFR = require('random-word-fr');
   this.new = true;
   this.secretWord = '';
   this.rightLetters = '?';
