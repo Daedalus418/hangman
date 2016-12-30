@@ -11,24 +11,35 @@
         Try to find the word before dying.
       </p>
 
-    <form>
-      <input type="text" name="letter" placeholder="enter a letter" ng-model="letterTest" ng-keyup="$event.keyCode == 13? compare(letterTest):null">
-      <input type="submit" name="button" value="enter" ng-click="compare(letterTest)">
-    </form>
+      <div ng-show='new'>
+        <p>Pour générer un nouveau mot, appuyez sur le bouton:</p>
+        <form ng-submit="vm.generate()">
+          <input type="submit" name="button" value="secretWord" ng-model="secretWord">
+        </form>
+      </div>
 
-    <p>Il vous reste {{vm.totalChance - vm.failedTest}} chance(s) pour découvrir le mot.</p>
+      <div ng-show='play'>
+        <p>{{vm.rightLetters}}</p>
+        <!-- <p ng-show="rightAnswer">{{letterTest}}</p>
+        <p ng-hide="rightAnswer">{{vm.rightLetters}}</p> -->
+        <p>Il vous reste {{vm.totalChance}} chance(s) pour découvrir le mot.</p>
+        <p>Ne sont pas dans le mot: {{vm.wrongLetters}}</p>
+
+        <form ng-submit="vm.compare(letterTest)">
+          <input type="text" name="letter" placeholder="enter a letter" ng-model="letterTest">
+          <input type="submit" name="button" value="enter">
+        </form>
+      </div>
+
     <p ng-show='success'>Bien joué !</p>
-    <p ng-show='defeat'>Perdu, le mot à deviner était "{{vm.dictionnary[0]}}". Mais vous pouvez rejouer :) Oui, vous êtes immortel(le)</p>
+    <p ng-show='defeat'>Perdu, le mot à deviner était "{{vm.dictionnary[0]}}". Mais vous pouvez rejouer :)</p>
 
     <script src="bower_components/angular/angular.min.js"></script>
+    <script></script>
 
     <script src="js/controllers/hangmanController.js"></script>
 
     <script src="js/app.js"></script>
 
-    <!-- <script>
-        // You can also require other files to run in this process
-        require('../renderer.js')
-    </script> -->
   </body>
 </html>
